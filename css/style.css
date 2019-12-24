@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.nav-tabs{
+    padding-top:20px;
+}
+.form-check-input-style{
+    margin: 7px 0px 0px -16px;
+}
+.form-check-input-h6{
+    margin: 3px 6px 0 0px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.tbody-last-td{
+    width: 15px;
+}
