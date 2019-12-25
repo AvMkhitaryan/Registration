@@ -15,16 +15,15 @@
         <div class="container">
             <ul class="nav nav-tabs justify-content-center" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#home">Registration</a>
+                    <a id="nav-item-first-a" class="nav-link active" data-toggle="tab" href="#home">Registration</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu1">Table</a>
+                <li  class="nav-item">
+                    <a id="nav-item-last-a" class="nav-link" data-toggle="tab" href="#menu1">Table</a>
                 </li>
             </ul>
 
-
             <div class="tab-content">
-                <div id="home" class="container tab-pane active"><br>
+                <div id="home" class="container tab-pane active">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-md-8 col-lg-8 col-xl-6">
@@ -74,30 +73,41 @@
                                     <div class="col mt-4 d-flex justify-content-center">
                                         <div class="form-group">
                                             <label for="datepicker">
-                                                <input id="datepicker" type="date" name="bday" max="3000-12-31"
-                                                       value="" min="1000-01-01" class="form-control">
+                                                <input id="datepicker" type="date" name="bday" max="2050-12-31"
+                                                       value="" min="1900-01-01" class="form-control">
                                             </label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row align-items-center">
-                                    <div class="col mt-4 d-flex justify-content-center">
+                                    <div class="col mt-4 d-flex  justify-content-center">
                                         <div class="form-check d-flex">
-                                                <input type="radio" class="form-check-input-style" value="men" name="optradio"><h6 class="form-check-input-h6">Men</h6>
+                                            <input type="radio" class="form-check-input-style" value="men"
+                                                   name="optradio"><h6 class="form-check-input-h6">Men</h6>
                                         </div>
                                         <div class="form-check d-flex">
-                                            <input type="radio" class="form-check-input-style" value="women" name="optradio"><h6 class="form-check-input-h6">Women</h6>
+                                            <input type="radio" class="form-check-input-style" value="women"
+                                                   name="optradio"><h6 class="form-check-input-h6">Women</h6>
                                         </div>
                                         <div class="form-check d-flex">
-                                                <input type="radio" class="form-check-input-style" value="other" name="optradio"><h6 class="form-check-input-h6">Other</h6>
+                                            <input type="radio" class="form-check-input-style" value="other"
+                                                   name="optradio"><h6 class="form-check-input-h6">Other</h6>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button id="registButtonId" class="btn btn-primary mt-4 d-flex justify-content-center">Registration
+                                    <button id="registButtonId"
+                                            class="btn btn-primary mt-4 d-flex justify-content-center Registration">
+                                        Registration
                                     </button>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-primary mt-4 reset">Reset</button>
+                                </div>
+                                <div class="change-div">
+                                    <button class="btn btn-primary mt-4 change-button" onclick="changeInfor()">Change Information</button>
                                 </div>
                             </div>
                         </div>

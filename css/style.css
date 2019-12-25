@@ -29,3 +29,16 @@ tr:nth-child(even) {
 .tbody-last-td{
     width: 15px;
 }
+/*!*.enterTheData{*!*/
+/*!*    margin-top: 10px;*!*/
+/*!*}*!*/
+
+/*.enterTheData-h3{*/
+/*     background: red;*/
+/*     border-radius:5px;*/
+/*}*/
+
+.change-div{
+    display: none;
+    text-align: center;
+}

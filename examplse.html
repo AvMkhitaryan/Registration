@@ -12,3 +12,131 @@
     <!--                                </div>-->
     <!--                            </td>-->
     <!--                        </tr>-->
+
+
+// $(".form-control").keyup(function() {
+//     if (!$(this).val()) {
+//         $(".btn-primary").prop("disabled", true);
+//     } else {
+//         $(".btn-primary").prop("disabled", false);
+//     }
+// });
+
+// $(".form-control").each(function () {
+//     $(this).keyup(function (event) {
+//             validateInputs();
+//     })
+// });
+//
+// function validateInputs(){
+//
+// }
+
+
+if (name === "" && name === null || surname === "" && surname === null || country === "" && country === null || city === "" && city === null || dateOfBirth === "" && dateOfBirth === null) {
+
+if (name === "" && name === null || surname === "" && surname === null || country === "" && country === null || city === "" && city === null || dateOfBirth === "" && dateOfBirth === null) {
+break;
+}
+
+
+// $.ajax({
+//     url: "json/index.json",
+//     data: "infoRegistObject",
+//     dataType: "json",
+//     success: $('.row-remove').click(function () {
+//
+//         $(this).closest('tr').remove();
+//     })
+// });
+
+
+// var name = $('#firstName').val();
+// var surname = $("#lastName").val();
+// var country = $("#country").val();
+// var city = $("#city").val();
+// var dateOfBirth = $("#datepicker").val();
+// var gender = $("#form-check-input-style").val();
+
+
+
+
+
+
+
+
+// let newObj = {
+//     "name": document.getElementById("firstName").value,
+//     "surname": document.getElementById("lastName").value,
+//     "country": document.getElementById("country").value,
+//     "city": document.getElementById("city").value,
+//     "dateOfBirth": document.getElementById("datepicker").value,
+//     "gender": document.getElementsByClassName("form-check-input-style").value,
+//
+// };
+//
+// dbInfoObj.push(newObj);
+//
+// let tbody = document.getElementById("tables-tbody");
+//
+// for (let i = 0; i < dbInfoObj.length; i++) {
+//     var obj = dbInfoObj[i];
+// }
+//
+// console.log(dbInfoObj.length);
+// let th = tbody.insertRow(3);
+//
+// let tdOne = th.insertCell(0);
+// tdOne.innerHTML = obj.name;
+//
+// let tdTwo = th.insertCell(1);
+// tdTwo.innerHTML = obj.surname;
+//
+// let tdThree = th.insertCell(2);
+// tdThree.innerHTML = obj.country;
+//
+// let tdFore = th.insertCell(3);
+// tdFore.innerHTML = obj.city;
+//
+// let tdFive = th.insertCell(4);
+// tdFive.innerHTML = obj.dateOfBirth;
+//
+// let tdSix = th.insertCell(5);
+// tdSix.innerHTML = obj.gender;
+//
+// let tdSev = th.insertCell(6);
+// tdSev.innerHTML = `
+//         <div class="d-flex">
+    //                            <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
+    //                               <button class="btn btn-danger btn-delete row-remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
+    //                            </div>
+// `;
+// $('.row-remove').click(function () {
+//     var result = confirm("Want to delete?");
+//     if (result === true) {
+//         $(this).closest('tr').remove();
+//     } else {
+//         alert("right choice")
+//     }
+// });
+
+// $(document).on('click', 'change-button', function () {
+//     if ($(".change-div").css("display") == "block"){
+//         $(".change-div").css("display", "block");
+//     } else {
+//         $(".change-div").css("display", "none")
+//     }
+//
+// });
+
+
+// $('.btn-primary').attr('disabled', true);
+// $(".form-control").each(function () {
+//     $(this).keyup(function () {
+//         if ($(this).val().length != 0) {
+//             $('.btn-primary').attr('disabled', false);
+//         } else {
+//             $('.btn-primary').attr('disabled', true);
+//         }
+//     })
+// });
