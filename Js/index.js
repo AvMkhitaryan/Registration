@@ -120,7 +120,6 @@ let dbInfoObj = [
 
 ];
 
-var arr=[];
 
 function edit(arg) {
     arr.push(dbInfoObj[arg].id);
@@ -138,16 +137,21 @@ function edit(arg) {
     // console.log(dbInfoObj);
 }
 
+var arr=[];
+
+for (let h=0;h<=arr.length;h++){
+
+}
 
 function changeInfor(){
 
-    dbInfoObj.arr[0].name =document.getElementById("firstName").value;
-    dbInfoObj.arr[0].surname = document.getElementById("lastName").value;
-    dbInfoObj.arr[0].country =document.getElementById("country").value;
-    dbInfoObj.arr[0].city =document.getElementById("city").value ;
-    dbInfoObj.arr[0].dateOfBirth =document.getElementById("datepicker").value ;
-    dbInfoObj.arr[0].gender =document.getElementsByClassName("form-check-input-style").value ;
-    console.log(arr[0]);
+    dbInfoObj.arr[arr.length - 1].name =document.getElementById("firstName").value;
+    dbInfoObj.arr[arr.length - 1].surname = document.getElementById("lastName").value;
+    dbInfoObj.arr[arr.length - 1].country =document.getElementById("country").value;
+    dbInfoObj.arr[arr.length - 1].city =document.getElementById("city").value ;
+    dbInfoObj.arr[arr.length - 1].dateOfBirth =document.getElementById("datepicker").value ;
+    dbInfoObj.arr[arr.length - 1].gender =document.getElementsByClassName("form-check-input-style").value ;
+
     $(".change-div").css("display", "none");
 }
 
@@ -211,7 +215,7 @@ $(document).on('click', '.Registration', function () {
         let tdSev = th.insertCell(6);
         tdSev.innerHTML = `
             <div class="d-flex">
-                   <button class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
+                   <button class="btn btn-success" onclick="edit("+i+3")"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
                    <button class="btn btn-danger btn-delete row-remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
     `;
