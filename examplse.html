@@ -140,3 +140,11 @@ break;
 //         }
 //     })
 // });
+
+
+document.getElementById("firstName").value = dbInfoObj[arg].name;
+document.getElementById("lastName").value = dbInfoObj[arg].surname;
+document.getElementById("country").value = dbInfoObj[arg].country;
+document.getElementById("city").value = dbInfoObj[arg].city;
+document.getElementById("datepicker").value = dbInfoObj[arg].dateOfBirth;
+document.getElementsByClassName("form-check-input-style").value = dbInfoObj[arg].gender;

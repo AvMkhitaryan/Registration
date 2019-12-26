@@ -1,5 +1,4 @@
 $(document).on('click', '.reset', function () {
-    document.getElementById("firstName").value = "";
     document.getElementById("lastName").value = "";
     document.getElementById("country").value = "";
     document.getElementById("city").value = "";
@@ -55,8 +54,8 @@ $.ajax({
 
             let tdSevenButtonOne = document.createElement("button");
             tdSevenButtonOne.setAttribute("class", "btn btn-success btn-edit");
-            tdSevenButtonOne.setAttribute("data-toggle", "tab");
-            tdSevenButtonOne.setAttribute("href", "#home");
+            // tdSevenButtonOne.setAttribute("data-toggle", "tab");
+            // tdSevenButtonOne.setAttribute("href", "#home");
             tdSevenButtonOne.setAttribute("onclick", "edit(" + (+i) + ")");
             tdSevenDiv.appendChild(tdSevenButtonOne);
 
@@ -215,11 +214,11 @@ $(document).on('click', '.Registration', function () {
         let tdSev = th.insertCell(6);
         tdSev.innerHTML = `
             <div class="d-flex">
-                   <button class="btn btn-success" onclick="edit("+i+3")"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
-                   <button class="btn btn-danger btn-delete row-remove"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                   <button class="btn btn-success btn-edit" onclick="edit("+i+3")"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
+                   <button class="btn btn-danger btn-delete "><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
     `;
-        $('.row-remove').click(function () {
+        $('.btn-delete').click(function () {
             var result = confirm("Want to delete?");
             if (result === true) {
                 $(this).closest('tr').remove();
