@@ -1,4 +1,5 @@
 $(document).on('click', '.reset', function () {
+    document.getElementById("firstName").value = "";
     document.getElementById("lastName").value = "";
     document.getElementById("country").value = "";
     document.getElementById("city").value = "";
@@ -12,12 +13,9 @@ $.ajax({
     dataType: "json",
     success: function (data) {
         let tBody = document.getElementById("tables-tbody");
-
         for (let i in data.infoRegistObject) {
 
-
             let tr = document.createElement("tr");
-            // tr.setAttribute("id",i);
             tBody.appendChild(tr);
 
             let tdOne = document.createElement("td");
@@ -54,8 +52,6 @@ $.ajax({
 
             let tdSevenButtonOne = document.createElement("button");
             tdSevenButtonOne.setAttribute("class", "btn btn-success btn-edit");
-            // tdSevenButtonOne.setAttribute("data-toggle", "tab");
-            // tdSevenButtonOne.setAttribute("href", "#home");
             tdSevenButtonOne.setAttribute("onclick", "edit(" + (+i) + ")");
             tdSevenDiv.appendChild(tdSevenButtonOne);
 
@@ -70,7 +66,6 @@ $.ajax({
 
             let deleteIcon = document.createElement("i");
             deleteIcon.setAttribute("class", "fa fa-trash");
-            // deleteIcon.setAttribute("onclick","remove("+i+")");
             tdSevenButtonTwo.appendChild(deleteIcon);
 
         }
@@ -78,16 +73,12 @@ $.ajax({
             var result = confirm("Want to delete?");
             if (result === true) {
                 $(this).closest('tr').remove();
-            } else {
-                alert("right choice")
             }
         });
-    }, error: function (error) {
+        }, error: function (error) {
         console.log(error)
     }
 });
-
-
 let dbInfoObj = [
     {
         "id": 0,
@@ -95,7 +86,7 @@ let dbInfoObj = [
         "surname": "Smith",
         "country": "USA",
         "city": "New York",
-        "dateOfBirth": "01/10/1990",
+        "dateOfBirth": "1990-01-10",
         "gender": "male"
     },
     {
@@ -104,7 +95,7 @@ let dbInfoObj = [
         "surname": "Poghosyan",
         "country": "Armenia",
         "city": "Gyumri",
-        "dateOfBirth": "12/11/1999",
+        "dateOfBirth": "1999-11-12",
         "gender": "male"
     },
     {
@@ -113,52 +104,40 @@ let dbInfoObj = [
         "surname": "Doe",
         "country": "England",
         "city": "London",
-        "dateOfBirth": "01/10/1995",
+        "dateOfBirth": "1995-01-10",
         "gender": "male"
     }
 
 ];
-
-
 function edit(arg) {
-    arr.push(dbInfoObj[arg].id);
-
+    var varibl=arg;
+    arr.push(varibl);
     document.getElementById("firstName").value = dbInfoObj[arg].name;
     document.getElementById("lastName").value = dbInfoObj[arg].surname;
     document.getElementById("country").value = dbInfoObj[arg].country;
     document.getElementById("city").value = dbInfoObj[arg].city;
     document.getElementById("datepicker").value = dbInfoObj[arg].dateOfBirth;
-    document.getElementsByClassName("form-check-input-style").value = dbInfoObj[arg].gender;
+    $("input[name='optradio']:checked").val(dbInfoObj[arg].gender) ;
 
     $(".change-div").css("display", "block");
-    // console.log(argumnets);
-    // console.log(arr);
-    // console.log(dbInfoObj);
+    $(".Registration").css("display", "none");
 }
 
 var arr=[];
-
-for (let h=0;h<=arr.length;h++){
-
-}
-
 function changeInfor(){
-
-    dbInfoObj.arr[arr.length - 1].name =document.getElementById("firstName").value;
-    dbInfoObj.arr[arr.length - 1].surname = document.getElementById("lastName").value;
-    dbInfoObj.arr[arr.length - 1].country =document.getElementById("country").value;
-    dbInfoObj.arr[arr.length - 1].city =document.getElementById("city").value ;
-    dbInfoObj.arr[arr.length - 1].dateOfBirth =document.getElementById("datepicker").value ;
-    dbInfoObj.arr[arr.length - 1].gender =document.getElementsByClassName("form-check-input-style").value ;
-
-    $(".change-div").css("display", "none");
+    var objVariele=arr.slice(-1)[0];
+    dbInfoObj[objVariele].name =document.getElementById("firstName").value;
+    dbInfoObj[objVariele].surname = document.getElementById("lastName").value;
+    dbInfoObj[objVariele].country =document.getElementById("country").value;
+    dbInfoObj[objVariele].city =document.getElementById("city").value ;
+    dbInfoObj[objVariele].dateOfBirth =document.getElementById("datepicker").value ;
+    dbInfoObj[objVariele].gender =$("input[name='optradio']:checked").val();
+    console.log(dbInfoObj);
+    console.log(objVariele);
 }
-
 
 $(document).on('click', '.Registration', function () {
-
     $(".form-control").each(function () {
-
         if ($(this).val().trim() == '') {
             $(this).css('border-color', 'red');
         } else {
@@ -179,18 +158,19 @@ $(document).on('click', '.Registration', function () {
             "country": document.getElementById("country").value,
             "city": document.getElementById("city").value,
             "dateOfBirth": document.getElementById("datepicker").value,
-            "gender": document.getElementsByClassName("form-check-input-style").value,
-
+            "gender": $("input[name='optradio']:checked").val(),
         };
 
+        document.getElementById("nav-item-table").click();
         dbInfoObj.push(newObj);
 
         let tbody = document.getElementById("tables-tbody");
-
+        var lengthElem=0;
         for (let i = 0; i < dbInfoObj.length; i++) {
             var obj = dbInfoObj[i];
-        }
+            var lengthElem=dbInfoObj.length;
 
+        }
         let th = tbody.insertRow(3);
 
         let tdOne = th.insertCell(0);
@@ -212,32 +192,36 @@ $(document).on('click', '.Registration', function () {
         tdSix.innerHTML = obj.gender;
 
         let tdSev = th.insertCell(6);
-        tdSev.innerHTML = `
-            <div class="d-flex">
-                   <button class="btn btn-success btn-edit" onclick="edit("+i+3")"><i class="fa fa-pencil" aria-hidden="true"></i> </button>
-                   <button class="btn btn-danger btn-delete "><i class="fa fa-trash" aria-hidden="true"></i></button>
-            </div>
-    `;
-        $('.btn-delete').click(function () {
+        tdSev.setAttribute("class","td-last-td");
+
+        let tdSevDiv=document.createElement("div");
+        tdSevDiv.setAttribute("class","d-flex");
+        tdSev.appendChild(tdSevDiv);
+
+        let tdSevDivButtonOne=document.createElement("button");
+        tdSevDivButtonOne.setAttribute("class","btn btn-success btn-edit");
+        tdSevDivButtonOne.setAttribute("onclick","edit("+(+lengthElem-1)+")");
+        tdSevDiv.appendChild(tdSevDivButtonOne);
+
+        let tdSevDivButtonOneIcon=document.createElement("i");
+        tdSevDivButtonOneIcon.setAttribute("class","fa fa-pencil");
+        tdSevDivButtonOneIcon.setAttribute("aria-hidden","true");
+        tdSevDivButtonOne.appendChild(tdSevDivButtonOneIcon);
+
+        let tdSevDivButtonTwo=document.createElement("button");
+        tdSevDivButtonTwo.setAttribute("class","btn btn-danger btn-edit row-remove");
+        tdSevDiv.appendChild(tdSevDivButtonTwo);
+
+        let tdSevDivButtonTwoIcon=document.createElement("i");
+        tdSevDivButtonTwoIcon.setAttribute("class","fa fa-trash");
+        tdSevDivButtonTwoIcon.setAttribute("aria-hidden","true");
+        tdSevDivButtonTwo.appendChild(tdSevDivButtonTwoIcon);
+
+        $('.row-remove').click(function () {
             var result = confirm("Want to delete?");
             if (result === true) {
                 $(this).closest('tr').remove();
-            } else {
-                alert("right choice")
             }
         });
     }
-
 });
-
-$(".btn-edit").click(function(){
-    // $("#nav-item-first-a").removeClass("nav-item");
-    $("#nav-item-first-a").addClass("nav-item active");
-});
-
-
-
-
-
-
-
